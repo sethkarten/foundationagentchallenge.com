@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
+
+# Local source/reference material not required for the published static site.
+114_The_Foundation_Agent_Chall.pdf
+pokeagent.github.io/

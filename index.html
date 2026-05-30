@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Foundation Agent Challenge 2026: one agent, a thousand games. A Kaggle-hosted competition for training generalist agents across text, web, and emulated game environments."
+    >
+    <title>Foundation Agent Challenge 2026</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Foundation Agent Challenge home">
+        <img src="FAC_Branding/fac_mascot_head.png" alt="">
+        <span>FAC 2026</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" data-nav>
+        <a href="#challenge">Challenge</a>
+        <a href="#kaggle">Kaggle</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#rules">Rules</a>
+        <a href="#resources">Resources</a>
+        <a href="#organizers">Organizers</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">NeurIPS 2026 Competition Track</p>
+          <h1 id="hero-title">Foundation Agent Challenge 2026</h1>
+          <p class="hero-subtitle">One agent. A thousand games.</p>
+          <p class="hero-copy">
+            Train a single model and harness to play across text games, web games, and emulated games.
+            The competition runs on Kaggle; this site is the landing page for rules, resources, and updates.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="#kaggle">Kaggle Details</a>
+            <a class="button button-secondary" href="mailto:foundationagentchallenge@gmail.com">Contact Organizers</a>
+          </div>
+        </div>
+        <div class="hero-stats" aria-label="Competition summary">
+          <div>
+            <strong>100</strong>
+            <span>public-crawl games</span>
+          </div>
+          <div>
+            <strong>1,000</strong>
+            <span>private-crawl games</span>
+          </div>
+          <div>
+            <strong>40B</strong>
+            <span>parameter limit</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro" id="challenge">
+        <div class="section-kicker">The Challenge</div>
+        <div class="split">
+          <div>
+            <h2>Can one agent play many games?</h2>
+          </div>
+          <div class="stack">
+            <p>
+              Participants submit one self-contained agent: a model up to 40B parameters plus a harness.
+              The public crawl gives teams a broad training set; the held-out private crawl determines the
+              primary ranking.
+            </p>
+            <p>
+              Scores are normalized per game, averaged within each runtime category, then averaged across
+              categories with equal weight.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section runtime-grid" aria-label="Runtime categories">
+        <article class="runtime-card">
+          <img src="FAC_Branding/Discord Emotes/mascot_thinking_discord.png" alt="">
+          <h3>Text Games</h3>
+          <p>Interactive fiction, structured text observations, menu actions, and token-level decisions.</p>
+        </article>
+        <article class="runtime-card">
+          <img src="FAC_Branding/Discord Emotes/console_discord.png" alt="">
+          <h3>Web Games</h3>
+          <p>Browser games rendered through JS and HTML5, controlled with mouse and keyboard actions.</p>
+        </article>
+        <article class="runtime-card">
+          <img src="FAC_Branding/Discord Emotes/mascot_prize_discord.png" alt="">
+          <h3>Emulated Games</h3>
+          <p>Console and handheld titles with video-frame observations and emulator button inputs.</p>
+        </article>
+      </section>
+
+      <section class="section kaggle-band" id="kaggle">
+        <div>
+          <p class="eyebrow">Kaggle Hosted</p>
+          <h2>Kaggle is where the competition happens.</h2>
+          <p>
+            Registration, containers, submissions, and live competition operations will run through Kaggle.
+            FoundationAgentChallenge.com is the public-facing hub for the announcement, orientation,
+            rules summary, tutorials, and official links.
+          </p>
+        </div>
+        <aside class="kaggle-panel" aria-label="Kaggle launch information">
+          <span>Launch target</span>
+          <strong>July 1, 2026</strong>
+          <p>Public crawl, starter kit, baseline harness, and beta leaderboard.</p>
+        </aside>
+      </section>
+
+      <section class="section media-section">
+        <div class="video-frame">
+          <video controls preload="metadata" poster="FAC_Branding/fac-kaggle-header-compact-2240x1120_alt.png">
+            <source src="FAC_Branding/fac_trailer.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div>
+          <p class="section-kicker">Preview</p>
+          <h2>Built for generalist game-playing agents.</h2>
+          <p>
+            The crawl spans action, platformer, puzzle, RPG, simulation, strategy, adventure, racing,
+            and survival games across multiple runtimes.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="timeline">
+        <div class="section-kicker">Timeline</div>
+        <h2>2026 competition schedule</h2>
+        <ol class="timeline">
+          <li><time datetime="2026-07-01">July 1</time><span>Beta launch with public crawl, starter kit, baseline harness, and live leaderboard.</span></li>
+          <li><time datetime="2026-08">Late August</time><span>Hybrid hackathon and official kickoff; rules and crawl freeze.</span></li>
+          <li><time datetime="2026-09-01">Sept 1-15</time><span>Text games sprint.</span></li>
+          <li><time datetime="2026-09-15">Sept 15-Oct 1</time><span>Web games sprint.</span></li>
+          <li><time datetime="2026-10-01">Oct 1-15</time><span>Emulated games sprint.</span></li>
+          <li><time datetime="2026-11-15">Nov 15</time><span>Final submissions due before private-crawl evaluation and report review.</span></li>
+        </ol>
+      </section>
+
+      <section class="section rules" id="rules">
+        <div>
+          <p class="section-kicker">Rules Snapshot</p>
+          <h2>Single model, offline evaluation, no private-crawl targeting.</h2>
+        </div>
+        <div class="rule-list">
+          <p>Open to everyone, with no team-size or affiliation restrictions.</p>
+          <p>Submissions must use one model with at most 40B parameters.</p>
+          <p>External resources required at inference time must ship inside the container.</p>
+          <p>Commercial or proprietary model API calls are prohibited during evaluation.</p>
+          <p>Training on, identifying, or reporting private-crawl games is prohibited.</p>
+          <p>Participants may submit up to three times per day.</p>
+        </div>
+      </section>
+
+      <section class="section resources" id="resources">
+        <div class="section-kicker">Resources</div>
+        <div class="resource-grid">
+          <article>
+            <h3>Starter Kit</h3>
+            <p>Kaggle-compatible containers, unified observation and action interfaces, and public-crawl environments.</p>
+          </article>
+          <article>
+            <h3>Baseline Harness</h3>
+            <p>Continual Harness extended across the public crawl, with an open-source student baseline planned for launch.</p>
+          </article>
+          <article>
+            <h3>Participant Support</h3>
+            <p>Tutorials, FAQs, introductory webinars, Discord support, and GitHub Issues for reproducible bug reports.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section organizers" id="organizers">
+        <div class="section-kicker">Organizers</div>
+        <div class="organizers-heading">
+          <h2>Organizing team</h2>
+          <p>
+            The challenge is organized by researchers across agent learning, game AI, multimodal
+            evaluation, and competition infrastructure.
+          </p>
+        </div>
+        <div class="organizer-grid" aria-label="Foundation Agent Challenge organizers">
+          <article class="organizer-card">
+            <img src="assets/headshots/seth-karten.jpg" alt="Seth Karten">
+            <h3>Seth Karten</h3>
+            <p>Princeton University</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/wayne-chi.jpg" alt="Wayne Chi">
+            <h3>Wayne Chi</h3>
+            <p>Carnegie Mellon University</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/jake-grigsby.jpg" alt="Jake Grigsby">
+            <h3>Jake Grigsby</h3>
+            <p>UT Austin</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/wenzhe-li.jpg" alt="Wenzhe Li">
+            <h3>Wenzhe Li</h3>
+            <p>Princeton University</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/chengshuai-shi.png" alt="Chengshuai Shi">
+            <h3>Chengshuai Shi</h3>
+            <p>Princeton University</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/alex-zhang.png" alt="Alex L. Zhang">
+            <h3>Alex L. Zhang</h3>
+            <p>MIT CSAIL</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/fei-fang.png" alt="Fei Fang">
+            <h3>Fei Fang</h3>
+            <p>Carnegie Mellon University</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/stephanie-milani.png" alt="Stephanie Milani">
+            <h3>Stephanie Milani</h3>
+            <p>NYU / Johns Hopkins</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/karthik-narasimhan.jpg" alt="Karthik Narasimhan">
+            <h3>Karthik Narasimhan</h3>
+            <p>Princeton University</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/kiran-vodrahalli.png" alt="Kiran Vodrahalli">
+            <h3>Kiran Vodrahalli</h3>
+            <p>Google DeepMind</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/yuke-zhu.jpg" alt="Yuke Zhu">
+            <h3>Yuke Zhu</h3>
+            <p>UT Austin / NVIDIA Research</p>
+          </article>
+          <article class="organizer-card">
+            <img src="assets/headshots/chi-jin.jpg" alt="Chi Jin">
+            <h3>Chi Jin</h3>
+            <p>Princeton University</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="FAC_Branding/fac_mascot.png" alt="">
+      <div>
+        <strong>Foundation Agent Challenge</strong>
+        <p>Questions: <a href="mailto:foundationagentchallenge@gmail.com">foundationagentchallenge@gmail.com</a></p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
