@@ -22,6 +22,9 @@
   --paper: #fffdf0;
   --lime: #baff48;
   --green: #87b52b;
+  /* Brand "Lime Deep" support shade — deepest lime in the brand guide, for
+     accents on light surfaces (still low-contrast; brand limes only pass AA on ink). */
+  --lime-deep: #7fa830;
   --red: #ff5a52;
   --sky: #4db7e8;
   --muted: #aeb7c6;
@@ -43,6 +46,10 @@ body {
   color: var(--paper);
   font-family: "FAC Space", system-ui, sans-serif;
   line-height: 1.55;
+  /* Backstop: never allow horizontal scroll. A stray wide element would
+     otherwise stretch the fixed header (width:100%) and push the burger
+     menu off the right edge on narrow phones. */
+  overflow-x: hidden;
 }
 
 body.nav-open {
@@ -160,7 +167,7 @@ body.nav-open .site-header {
   justify-items: center;
   align-items: center;
   gap: 40px;
-  padding: 132px clamp(20px, 5vw, 72px) 72px;
+  padding: 168px clamp(20px, 5vw, 72px) 120px;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
@@ -242,8 +249,9 @@ body.nav-open .site-header {
   margin: 0 0 18px;
   color: var(--lime);
   font-family: "FAC Mono", monospace;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -293,7 +301,7 @@ h3 {
 .hero-copy {
   max-width: 540px;
   margin-bottom: 28px;
-  color: #dcd7c5;
+  color: #d6dcea;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -316,7 +324,7 @@ h3 {
   min-height: 52px;
   padding: 0 24px;
   border-width: 1px;
-  border-radius: 0;
+  border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 500;
   white-space: nowrap;
@@ -411,6 +419,12 @@ h3 {
   padding: clamp(64px, 9vw, 116px) clamp(20px, 5vw, 72px);
 }
 
+/* Tighten the gap between the intro copy and the cards directly below it
+   (the cards' own top padding is already 0). */
+.intro {
+  padding-bottom: clamp(28px, 4vw, 64px);
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(260px, 0.8fr) minmax(280px, 1fr);
@@ -423,8 +437,11 @@ h3 {
   font-size: 1.06rem;
 }
 
+
 .runtime-grid {
   display: grid;
+  /* 3 columns on desktop; breaks to 2 at ≤1023px and 1 at ≤640px (see media
+     queries) so the cards never look cramped or over-wide. */
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   padding-top: 0;
@@ -448,9 +465,26 @@ h3 {
 }
 
 .runtime-card img {
-  width: 58px;
-  height: 58px;
-  margin-bottom: 28px;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+/* Category names read as labels (like the header nav / footer headings), so
+   give them the shared mono-uppercase treatment instead of a plain heading. */
+.runtime-card h3 {
+  margin-bottom: 6px;
+  font-family: "FAC Mono", monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.runtime-card p {
+  font-size: 1.06rem;
+  line-height: 1.55;
 }
 
 .runtime-card p,
@@ -471,7 +505,7 @@ h3 {
   color: var(--ink);
 }
 
-.kaggle-band p {
+.kaggle-band p:not(.eyebrow) {
   max-width: 780px;
   font-size: 1.08rem;
 }
@@ -562,7 +596,7 @@ h3 {
 }
 
 .rules .section-kicker {
-  color: var(--green);
+  color: var(--lime-deep);
 }
 
 .rule-list {
@@ -731,6 +765,10 @@ h3 {
   line-height: 1.6;
   color: #dcd7c5;
   max-width: 32ch;
+  /* The contact email is one long unbreakable token. `anywhere` (not
+     `break-word`) is required: it shrinks the element's min-content size so the
+     footer grid track can narrow and the email wraps instead of overflowing. */
+  overflow-wrap: anywhere;
 }
 
 .footer-brand p a {
@@ -877,7 +915,16 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .runtime-grid,
+  /* Stacked: the column gap becomes a vertical gap — keep it tight between the
+     heading and the copy below it. */
+  .split {
+    gap: 8px;
+  }
+
+  .runtime-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .resource-grid {
     grid-template-columns: 1fr;
   }
@@ -901,7 +948,9 @@ h3 {
   }
 
   h1 {
-    font-size: 1.9rem;
+    /* "FOUNDATION" is 10 chars of pixel font; a fixed 1.9rem overflows ~320px
+       viewports. Scale with viewport so it always fits, capped at 1.9rem. */
+    font-size: clamp(1.5rem, 7.4vw, 1.9rem);
   }
 
   h2 {
@@ -931,6 +980,10 @@ h3 {
   }
 
   .organizer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .runtime-grid {
     grid-template-columns: 1fr;
   }
 }
