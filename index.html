@@ -8,13 +8,18 @@
       content="Foundation Agent Challenge 2026: one agent, a thousand games. A Kaggle-hosted competition for training generalist agents across text, web, and emulated game environments."
     >
     <title>Foundation Agent Challenge 2026</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Foundation Agent Challenge home">
-        <img src="FAC_Branding/fac_mascot_head.png" alt="">
-        <span>FAC 2026</span>
+        <img src="FAC_Branding/fac_mascot_head_trimmed.png" alt="">
+        <span>/FAC 2026</span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
         <span></span>
@@ -32,32 +37,34 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-mascot" aria-hidden="true">
+          <img src="FAC_Branding/fac_mascot.png" alt="">
+        </div>
         <div class="hero-content">
-          <p class="eyebrow">NeurIPS 2026 Competition Track</p>
-          <h1 id="hero-title">Foundation Agent Challenge 2026</h1>
-          <p class="hero-subtitle">One agent. A thousand games.</p>
+          <p class="eyebrow">NeurIPS 2026 · Competition Track</p>
+          <h1 id="hero-title">Foundation<br>Agent<br><span class="accent">Challenge</span></h1>
           <p class="hero-copy">
-            Train a single model and harness to play across text games, web games, and emulated games.
-            The competition runs on Kaggle; this site is the landing page for rules, resources, and updates.
+            <strong>One agent. A thousand games.</strong> Train a single model and harness to play across
+            text games, web games, and emulated games. The competition runs on Kaggle; this site is the
+            landing page for rules, resources, and updates.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button button-primary" href="#kaggle">Kaggle Details</a>
             <a class="button button-secondary" href="mailto:foundationagentchallenge@gmail.com">Contact Organizers</a>
           </div>
-        </div>
-        <div class="hero-stats" aria-label="Competition summary">
-          <div>
-            <strong>100</strong>
-            <span>public-crawl games</span>
-          </div>
-          <div>
-            <strong>1,000</strong>
-            <span>private-crawl games</span>
-          </div>
-          <div>
-            <strong>40B</strong>
-            <span>parameter limit</span>
+          <div class="hero-stats" aria-label="Competition summary">
+            <div>
+              <strong>100<span class="u">.</span></strong>
+              <span>public-crawl games</span>
+            </div>
+            <div>
+              <strong>1,000<span class="u">.</span></strong>
+              <span>private-crawl games</span>
+            </div>
+            <div>
+              <strong>1<span class="u">.</span></strong>
+              <span>model</span>
+            </div>
           </div>
         </div>
       </section>

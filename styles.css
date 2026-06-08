@@ -69,41 +69,75 @@ video {
   justify-content: space-between;
   width: 100%;
   padding: 18px clamp(18px, 4vw, 56px);
-  background: linear-gradient(180deg, rgba(8, 13, 30, 0.86), rgba(8, 13, 30, 0));
+  /* Constant frosted glass (like the reference): translucent + blur. The
+     hairline border only appears once scrolled, not at the very top. */
+  background: rgba(8, 13, 30, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 220ms ease, background 220ms ease;
 }
 
 .site-header.is-scrolled,
 body.nav-open .site-header {
-  background: rgba(8, 13, 30, 0.94);
-  border-bottom: 1px solid var(--line);
+  background: rgba(8, 13, 30, 0.9);
+  border-bottom-color: var(--line);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: var(--paper);
-  font-family: "FAC Pixel", monospace;
-  font-size: 0.78rem;
+  font-family: "FAC Mono", monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-decoration: none;
 }
 
 .brand img {
-  width: 34px;
-  height: 34px;
+  width: auto;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+  /* Head's visual mass sits low (heavy body, light antenna), so nudge up to
+     optically center it against the wordmark. */
+  transform: translateY(-4px);
+}
+
+/* When the scroll-morph is active, the static header head is replaced by the
+   floating clone (it still reserves its layout box via visibility:hidden). */
+.js-morph .brand img {
+  visibility: hidden;
+}
+
+.morph-mascot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: 0 0;
+  will-change: transform, opacity;
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 26px;
-  color: var(--muted);
+  gap: 2px;
+  color: var(--paper);
   font-family: "FAC Mono", monospace;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .site-nav a {
+  padding: 8px 12px;
   text-decoration: none;
+  transition: color 120ms ease;
 }
 
 .site-nav a:hover {
@@ -118,26 +152,84 @@ body.nav-open .site-header {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  min-height: 86vh;
-  padding: 132px clamp(20px, 5vw, 72px) 42px;
+  justify-items: center;
+  align-items: center;
+  gap: 40px;
+  padding: 132px clamp(20px, 5vw, 72px) 72px;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
 
-.hero-media {
+/* Faint white grid lines, faded out toward the edges (matches reference). */
+.hero::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg, rgba(8, 13, 30, 0.98) 0%, rgba(8, 13, 30, 0.78) 46%, rgba(8, 13, 30, 0.36) 100%),
-    linear-gradient(0deg, rgba(8, 13, 30, 0.92) 0%, rgba(8, 13, 30, 0.08) 34%),
-    url("FAC_Branding/fac-kaggle-header-2240x1120.png") right center / cover no-repeat;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(circle at 50% 45%, black 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, black 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.hero-mascot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-mascot img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  filter: drop-shadow(8px 12px 0 rgba(0, 0, 0, 0.45));
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  width: min(760px, 100%);
-  align-self: center;
+  width: 100%;
+  max-width: 640px;
+}
+
+/* Tablet: two columns with the mascot taking a third and the text two-thirds,
+   so the mascot no longer dominates the row. */
+@media (min-width: 840px) {
+  .hero {
+    grid-template-columns: 1fr 2fr;
+    justify-items: stretch;
+    gap: 48px;
+    min-height: 70vh;
+  }
+
+  .hero-mascot img {
+    max-width: 100%;
+  }
+}
+
+/* Desktop: switch to bounded columns centred as a group. */
+@media (min-width: 1024px) {
+  .hero {
+    /* Two bounded columns centred as a group, so the whitespace is balanced on
+       both sides instead of the text drifting to the middle of a wide cell. */
+    grid-template-columns: minmax(300px, 480px) minmax(0, 580px);
+    justify-content: center;
+    justify-items: stretch;
+    gap: 64px;
+    min-height: 600px;
+  }
+
+  .hero-mascot img {
+    max-width: 480px;
+  }
+
+  .hero-copy {
+    font-size: 1.2rem;
+    max-width: 560px;
+  }
 }
 
 .eyebrow,
@@ -159,10 +251,27 @@ p {
 
 h1 {
   max-width: 720px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
   font-family: "FAC Pixel", monospace;
-  font-size: clamp(2.15rem, 6vw, 5.3rem);
-  line-height: 1.08;
+  font-size: clamp(1.7rem, 4vw, 3.25rem);
+  line-height: 1.2;
+}
+
+/* Hero eyebrow matches the reference: lighter mono, wider tracking. */
+.hero-content .eyebrow {
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--lime);
+}
+
+#hero-title {
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.55);
+}
+
+#hero-title .accent {
+  color: var(--lime);
 }
 
 h2 {
@@ -176,24 +285,54 @@ h3 {
   font-size: 1.24rem;
 }
 
-.hero-subtitle {
-  margin-bottom: 12px;
-  color: var(--lime);
-  font-size: clamp(1.35rem, 3vw, 2.3rem);
-  font-weight: 800;
+.hero-copy {
+  max-width: 540px;
+  margin-bottom: 28px;
+  color: #dcd7c5;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.hero-copy {
-  max-width: 680px;
-  margin-bottom: 28px;
-  color: #d9deea;
-  font-size: 1.08rem;
+.hero-copy strong {
+  color: inherit;
+  font-weight: 600;
 }
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+/* Hero buttons follow the reference: uppercase mono, sharp corners, thin
+   border, filled-lime primary + ghost secondary. Both become a lime outline on
+   hover. Lighter weight so the text matches the 1px border. */
+.hero-actions .button {
+  min-height: 52px;
+  padding: 0 24px;
+  border-width: 1px;
+  border-radius: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.hero-actions .button-primary:hover {
+  background: transparent;
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+.hero-actions .button-secondary {
+  border-color: rgba(255, 253, 240, 0.28);
+}
+
+.hero-actions .button-secondary:hover {
+  border-color: var(--lime);
+  color: var(--lime);
 }
 
 .button {
@@ -224,31 +363,43 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  align-self: end;
-  width: min(820px, 100%);
-  margin-top: 64px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
-
-.hero-stats div {
-  padding: 18px;
-  background: rgba(8, 13, 30, 0.72);
+  /* The two crawl labels are long; "Model" is short — borrow width from it so
+     "PRIVATE-CRAWL GAMES" stays on one line. */
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.15fr) minmax(0, 0.7fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 560px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: "FAC Mono", monospace;
+  text-align: left;
 }
 
 .hero-stats strong {
   display: block;
+  margin-bottom: 4px;
   color: var(--paper);
-  font-family: "FAC Pixel", monospace;
+  font-family: "FAC Mono", monospace;
   font-size: 1.35rem;
+  font-weight: 700;
 }
 
 .hero-stats span {
   color: var(--muted);
   font-family: "FAC Mono", monospace;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-stats strong .u {
+  color: var(--lime);
+  /* Override the small label sizing the generic `.hero-stats span` rule applies
+     — the dot should be as large as the number, like the reference. */
+  font-size: inherit;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 .section {
@@ -553,47 +704,87 @@ h3 {
   color: var(--lime);
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1023px) {
   .site-nav {
     position: fixed;
     inset: 71px 0 auto 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
-    padding: 8px 20px 22px;
+    gap: 2px;
+    padding: 12px 12px 20px;
     background: rgba(8, 13, 30, 0.98);
     border-bottom: 1px solid var(--line);
+    /* Hidden by default; slides down + fades in when open. visibility is delayed
+       on close so the panel stays interactive through the fade-out. */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 200ms ease, transform 220ms ease,
+      visibility 0s linear 220ms;
   }
 
   body.nav-open .site-nav {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition: opacity 200ms ease, transform 220ms ease, visibility 0s;
   }
 
+  /* Clean list — no per-item dividers; spacing + a subtle hover fill instead. */
   .site-nav a {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
+    padding: 14px 12px;
+    border-radius: 8px;
+    transition: background 140ms ease, color 140ms ease;
+  }
+
+  .site-nav a:hover {
+    background: rgba(186, 255, 72, 0.06);
   }
 
   .nav-toggle {
-    display: inline-grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     background: transparent;
     border: 1px solid var(--line);
-    border-radius: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 160ms ease, background 160ms ease;
+  }
+
+  .nav-toggle:hover {
+    border-color: var(--lime);
+    background: rgba(186, 255, 72, 0.06);
   }
 
   .nav-toggle span {
-    width: 18px;
+    display: block;
+    width: 20px;
     height: 2px;
+    margin: 0 auto;
+    border-radius: 2px;
     background: var(--paper);
+    transition: transform 200ms ease, background 160ms ease;
   }
 
-  .nav-toggle span + span {
-    margin-top: -12px;
+  .nav-toggle:hover span {
+    background: var(--lime);
+  }
+
+  /* Open state morphs the two bars into an X. */
+  body.nav-open .nav-toggle span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  body.nav-open .nav-toggle span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
   }
 
   .hero {
@@ -628,18 +819,11 @@ h3 {
   }
 
   .hero {
-    min-height: auto;
     padding-top: 112px;
   }
 
-  .hero-media {
-    background:
-      linear-gradient(180deg, rgba(8, 13, 30, 0.86) 0%, rgba(8, 13, 30, 0.94) 70%),
-      url("FAC_Branding/fac-kaggle-header-compact-2240x1120_alt.png") center top / cover no-repeat;
-  }
-
   h1 {
-    font-size: 2.18rem;
+    font-size: 1.9rem;
   }
 
   h2 {
@@ -647,12 +831,20 @@ h3 {
   }
 
   .hero-stats {
-    grid-template-columns: 1fr;
-    margin-top: 44px;
+    gap: 16px;
+    margin-top: 28px;
   }
 
   .button {
     width: 100%;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .hero-actions .button {
+    width: auto;
   }
 
   .timeline li {
