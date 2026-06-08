@@ -94,6 +94,11 @@ body.nav-open .site-header {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.brand:hover {
+  color: var(--lime);
 }
 
 .brand img {
@@ -682,26 +687,99 @@ h3 {
 }
 
 .site-footer {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 32px clamp(20px, 5vw, 72px);
-  background: #050916;
+  padding: 3.5rem clamp(20px, 5vw, 72px) 1.75rem;
+  background: var(--ink);
   border-top: 1px solid var(--line);
 }
 
-.site-footer img {
-  width: 62px;
-  height: 62px;
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-.site-footer p {
-  margin: 4px 0 0;
-  color: var(--muted);
+.footer-brand .lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.125rem;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
 }
 
-.site-footer a {
+.footer-brand .lockup img {
+  width: 76px;
+  height: auto;
+}
+
+.footer-brand .name {
+  font-family: "FAC Pixel", monospace;
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--paper);
+}
+
+.footer-brand .name .a {
   color: var(--lime);
+}
+
+.footer-brand p {
+  margin: 0;
+  font-family: "FAC Space", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #dcd7c5;
+  max-width: 32ch;
+}
+
+.footer-brand p a {
+  color: var(--paper);
+  text-decoration: underline;
+}
+
+.site-footer h4 {
+  margin: 0 0 0.875rem;
+  font-family: "FAC Mono", monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer li {
+  margin-bottom: 0.625rem;
+}
+
+.site-footer li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "FAC Mono", monospace;
+  font-weight: 400;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+
+.site-footer li a:hover {
+  color: var(--lime);
+}
+
+@media (min-width: 960px) {
+  .footer-top {
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -850,10 +928,6 @@ h3 {
   .timeline li {
     grid-template-columns: 1fr;
     gap: 6px;
-  }
-
-  .site-footer {
-    align-items: flex-start;
   }
 
   .organizer-grid {
