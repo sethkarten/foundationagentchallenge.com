@@ -8,17 +8,71 @@
       content="Foundation Agent Challenge 2026: one agent, a thousand games. A Kaggle-hosted competition for training generalist agents across text, web, and emulated game environments."
     >
     <title>Foundation Agent Challenge 2026</title>
+    <link rel="canonical" href="https://foundationagentchallenge.com/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Seth Karten">
+    <meta name="theme-color" content="#baff48">
+
+    <!-- Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Foundation Agent Challenge">
+    <meta property="og:title" content="Foundation Agent Challenge 2026">
+    <meta property="og:description" content="One agent, a thousand games. A Kaggle-hosted NeurIPS 2026 competition for training generalist agents across text, web, and emulated game environments.">
+    <meta property="og:url" content="https://foundationagentchallenge.com/">
+    <meta property="og:image" content="https://foundationagentchallenge.com/assets/social/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="Foundation Agent Challenge 2026 — one agent, a thousand games.">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sethkarten">
+    <meta name="twitter:creator" content="@sethkarten">
+    <meta name="twitter:title" content="Foundation Agent Challenge 2026">
+    <meta name="twitter:description" content="One agent, a thousand games. A Kaggle-hosted NeurIPS 2026 competition for generalist game-playing agents across text, web, and emulated games.">
+    <meta name="twitter:image" content="https://foundationagentchallenge.com/assets/social/og-image.png">
+    <meta name="twitter:image:alt" content="Foundation Agent Challenge 2026 — one agent, a thousand games.">
+
+    <!-- Structured data: competition as a schema.org Event -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Foundation Agent Challenge 2026",
+      "description": "One agent, a thousand games. A Kaggle-hosted NeurIPS 2026 competition for training generalist agents across text, web, and emulated game environments.",
+      "startDate": "2026-07-01",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "VirtualLocation",
+        "url": "https://foundationagentchallenge.com/"
+      },
+      "image": "https://foundationagentchallenge.com/assets/social/og-image.png",
+      "url": "https://foundationagentchallenge.com/",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Foundation Agent Challenge",
+        "url": "https://foundationagentchallenge.com/"
+      }
+    }
+    </script>
+
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
     <link rel="manifest" href="assets/favicons/site.webmanifest">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="FAC_Branding/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="FAC_Branding/Fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="FAC_Branding/Fonts/Press_Start_2P/PressStart2P-Regular.woff2">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Foundation Agent Challenge home">
-        <img src="FAC_Branding/fac_mascot_head_trimmed.png" alt="">
+      <a class="brand" href="#top" aria-label="/FAC 2026 — Foundation Agent Challenge home">
+        <img src="FAC_Branding/fac_mascot_head_trimmed.webp" alt="" width="383" height="402" decoding="async">
         <span>/FAC 2026</span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
@@ -38,7 +92,7 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-mascot" aria-hidden="true">
-          <img src="FAC_Branding/fac_mascot.png" alt="">
+          <img src="FAC_Branding/fac_mascot.webp" alt="" width="1000" height="1000" decoding="async" fetchpriority="high">
         </div>
         <div class="hero-content">
           <p class="eyebrow">NeurIPS 2026 · Competition Track</p>
@@ -93,7 +147,7 @@
         <article class="runtime-card">
           <picture>
             <source type="image/webp" srcset="FAC_Branding/fac_game_categories_text-360.webp 2x, FAC_Branding/fac_game_categories_text-540.webp 3x">
-            <img src="FAC_Branding/fac_game_categories_text-540.png" alt="" width="180" height="180" loading="lazy" decoding="async">
+            <img src="FAC_Branding/fac_game_categories_text-540.png" alt="Illustration representing text games" width="180" height="180" loading="lazy" decoding="async">
           </picture>
           <h3>Text Games</h3>
           <p>Interactive fiction, structured text observations, menu actions, and token-level decisions.</p>
@@ -101,7 +155,7 @@
         <article class="runtime-card">
           <picture>
             <source type="image/webp" srcset="FAC_Branding/fac_game_categories_web-360.webp 2x, FAC_Branding/fac_game_categories_web-540.webp 3x">
-            <img src="FAC_Branding/fac_game_categories_web-540.png" alt="" width="180" height="180" loading="lazy" decoding="async">
+            <img src="FAC_Branding/fac_game_categories_web-540.png" alt="Illustration representing web games" width="180" height="180" loading="lazy" decoding="async">
           </picture>
           <h3>Web Games</h3>
           <p>Browser games rendered through JS and HTML5, controlled with mouse and keyboard actions.</p>
@@ -109,7 +163,7 @@
         <article class="runtime-card">
           <picture>
             <source type="image/webp" srcset="FAC_Branding/fac_game_categories_emulated-360.webp 2x, FAC_Branding/fac_game_categories_emulated-540.webp 3x">
-            <img src="FAC_Branding/fac_game_categories_emulated-540.png" alt="" width="180" height="180" loading="lazy" decoding="async">
+            <img src="FAC_Branding/fac_game_categories_emulated-540.png" alt="Illustration representing emulated console games" width="180" height="180" loading="lazy" decoding="async">
           </picture>
           <h3>Emulated Games</h3>
           <p>Console and handheld titles with video-frame observations and emulator button inputs.</p>
@@ -205,62 +259,62 @@
         </div>
         <div class="organizer-grid" aria-label="Foundation Agent Challenge organizers">
           <article class="organizer-card">
-            <img src="assets/headshots/seth-karten.jpg" alt="Seth Karten">
+            <img src="assets/headshots/seth-karten.webp" alt="Seth Karten" loading="lazy" decoding="async">
             <h3>Seth Karten</h3>
             <p>Princeton University</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/wayne-chi.jpg" alt="Wayne Chi">
+            <img src="assets/headshots/wayne-chi.webp" alt="Wayne Chi" loading="lazy" decoding="async">
             <h3>Wayne Chi</h3>
             <p>Carnegie Mellon University</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/jake-grigsby.jpg" alt="Jake Grigsby">
+            <img src="assets/headshots/jake-grigsby.webp" alt="Jake Grigsby" loading="lazy" decoding="async">
             <h3>Jake Grigsby</h3>
             <p>UT Austin</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/wenzhe-li.jpg" alt="Wenzhe Li">
+            <img src="assets/headshots/wenzhe-li.webp" alt="Wenzhe Li" loading="lazy" decoding="async">
             <h3>Wenzhe Li</h3>
             <p>Princeton University</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/chengshuai-shi.png" alt="Chengshuai Shi">
+            <img src="assets/headshots/chengshuai-shi.webp" alt="Chengshuai Shi" loading="lazy" decoding="async">
             <h3>Chengshuai Shi</h3>
             <p>Princeton University</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/alex-zhang.png" alt="Alex L. Zhang">
+            <img src="assets/headshots/alex-zhang.webp" alt="Alex L. Zhang" loading="lazy" decoding="async">
             <h3>Alex L. Zhang</h3>
             <p>MIT CSAIL</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/fei-fang.png" alt="Fei Fang">
+            <img src="assets/headshots/fei-fang.webp" alt="Fei Fang" loading="lazy" decoding="async">
             <h3>Fei Fang</h3>
             <p>Carnegie Mellon University</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/stephanie-milani.png" alt="Stephanie Milani">
+            <img src="assets/headshots/stephanie-milani.webp" alt="Stephanie Milani" loading="lazy" decoding="async">
             <h3>Stephanie Milani</h3>
             <p>NYU / Johns Hopkins</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/karthik-narasimhan.jpg" alt="Karthik Narasimhan">
+            <img src="assets/headshots/karthik-narasimhan.webp" alt="Karthik Narasimhan" loading="lazy" decoding="async">
             <h3>Karthik Narasimhan</h3>
             <p>Princeton University</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/kiran-vodrahalli.png" alt="Kiran Vodrahalli">
+            <img src="assets/headshots/kiran-vodrahalli.webp" alt="Kiran Vodrahalli" loading="lazy" decoding="async">
             <h3>Kiran Vodrahalli</h3>
             <p>Google DeepMind</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/yuke-zhu.jpg" alt="Yuke Zhu">
+            <img src="assets/headshots/yuke-zhu.webp" alt="Yuke Zhu" loading="lazy" decoding="async">
             <h3>Yuke Zhu</h3>
             <p>UT Austin / NVIDIA Research</p>
           </article>
           <article class="organizer-card">
-            <img src="assets/headshots/chi-jin.jpg" alt="Chi Jin">
+            <img src="assets/headshots/chi-jin.webp" alt="Chi Jin" loading="lazy" decoding="async">
             <h3>Chi Jin</h3>
             <p>Princeton University</p>
           </article>
@@ -279,7 +333,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a class="lockup" href="#top" aria-label="Foundation Agent Challenge home">
-            <img src="FAC_Branding/fac_mascot.png" alt="">
+            <img src="FAC_Branding/fac_mascot-240.webp" alt="" width="240" height="240" loading="lazy" decoding="async">
             <div class="name">FOUNDATION<br>AGENT<br><span class="a">CHALLENGE</span></div>
           </a>
           <p>Training generalist agents across a massive quantity of game environments. NeurIPS 2026 competition. Questions: <a href="mailto:foundationagentchallenge@gmail.com">foundationagentchallenge@gmail.com</a></p>

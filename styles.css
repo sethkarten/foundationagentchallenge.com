@@ -1,18 +1,21 @@
 @font-face {
   font-family: "FAC Space";
-  src: url("FAC_Branding/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  src: url("FAC_Branding/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.woff2") format("woff2"),
+       url("FAC_Branding/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "FAC Mono";
-  src: url("FAC_Branding/Fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
+  src: url("FAC_Branding/Fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.woff2") format("woff2"),
+       url("FAC_Branding/Fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "FAC Pixel";
-  src: url("FAC_Branding/Fonts/Press_Start_2P/PressStart2P-Regular.ttf") format("truetype");
+  src: url("FAC_Branding/Fonts/Press_Start_2P/PressStart2P-Regular.woff2") format("woff2"),
+       url("FAC_Branding/Fonts/Press_Start_2P/PressStart2P-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
